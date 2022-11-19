@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="card shadow mb-5">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id :</th>
+                    <th>Album Title :</th>
+                    <th>Artist Name :</th>
+                    <th>Release Date :</th>
+                    <th>Genre :</th>
+                    <th>Delete :</th>
+                    <th>Update :</th>
+                </tr>
+
+                <tbody *ngFor="let album of albums">
+                    <tr>
+                        <td>{{album.idAlbum}}</td>
+                        <td>{{album.title}}</td>
+                        <td>{{album.artist}}</td>
+                        <td>{{album.releaseDate | date:'yyyy/MM/dd'}}</td>
+                        <td>{{album.genre}}</td>
+                        <td><a class="btn btn-danger" (click)="deleteAlbum(album)"><i class='bx bxs-trash'></i> Delete</a></td>
+                        <td><a class="btn btn-info" [routerLink]="['/update-album', album.idAlbum]"><i class='bx bxs-edit'></i> Update</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
